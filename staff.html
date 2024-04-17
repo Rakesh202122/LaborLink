@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Construction Staff Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    textarea {
+        height: 100px;
+    }
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    }
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+        .container {
+            margin: 10px;
+            padding: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Construction Staff Form</h2>
+    <form id="registrationForm" method="post" name="staff-google-sheet" onsubmit="return myFunction()"">
+        <div class="form-group">
+            <label for="name">Contractor Name:</label>
+            <input placeholder="Enter Contractor Name" type="text" id="Name" name="Name" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number:</label>
+            <input placeholder="Enter Your Phone Number" type="number" id="Phone" name="Phone" required>
+        </div>
+        <div class="form-group">
+            <label for="skill">Skill:</label>
+            <input placeholder="Enter Your Skills" type="text" id="Skill" name="Skill" required>
+        </div>
+        <div class="form-group">
+            <label for="education">Education:</label>
+            <input placeholder="Enter Your Education" type="text" id="Education" name="Education" required>
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience (Year):</label>
+            <input placeholder="Enter Your Experience (Year)" type="number" id="Experience" name="Experience" required>
+        </div>
+        <div class="form-group">
+            <label for="age">Age:</label>
+            <input placeholder="Enter Your Age" type="number" id="Age" name="Age" required>
+        </div>
+        <div class="form-group">
+            <label for="salary">Old salary:</label>
+            <input placeholder="Enter Your Old salary" type="text" id="Salary" name="Salary" required>
+        </div>
+        <div class="form-group">
+            <label for="district">District:</label>
+            <input placeholder="Enter Your District" type="text" id="District" name="District" required>
+        </div>
+        <div class="form-group">
+            <label for="city">City/village:</label>
+            <input placeholder="Enter Your City/village" type="text" id="City" name="City" required>
+        </div>
+        <div class="form-group">
+            <label for="name">Gender:</label>
+            <select name="Gender" class="box" id="Gender" required>
+                <option value="" disabled selected>Select Any One</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="married">Married or Not:</label>
+            <select name="Married" class="box" id="Married" required>
+                <option value="" disabled selected>Select Any One</option>
+                <option value="yes">yes</option>
+                <option value="no">no</option>
+            </select>
+        </div>
+        <input type="submit" value="Submit" name="submit">
+    </form>
+</div>
+
+
+<!-- Script function to check our form is fill compleately or not -->
+
+<script>
+    function myFunction(){
+    var Name = document.forms["staff-google-sheet"]["Name"].value;
+    var Phone = document.forms["staff-google-sheet"]["Phone"].value;
+    var Skill = document.forms["staff-google-sheet"]["Skill"].value;
+    var Education = document.forms["staff-google-sheet"]["Education"].value;
+    var Experience = document.forms["staff-google-sheet"]["Experience"].value;
+    var Age = document.forms["staff-google-sheet"]["Age"].value;
+    var Salary = document.forms["staff-google-sheet"]["Salary"].value;
+    var District = document.forms["staff-google-sheet"]["District"].value;
+    var City = document.forms["staff-google-sheet"]["City"].value;
+    var Gender = document.forms["staff-google-sheet"]["Gender"].value;
+    var Married = document.forms["staff-google-sheet"]["Married"].value;
+    if(Name == "" || Phone == "" || Skill == "" || Education == "" || Experience == "" || Age == "" || Salary == "" || District == "" || City == "" || Gender == "" || Married == ""){
+        alert("Please fill Your form completely!");
+        return false;
+        // window.location.href="whatsapp.html";
+    }
+    else{
+        alert("Your form is submitted successfully!");
+        window.location.href="https://rakesh202122.github.io/LaborLink/";
+    }
+}
+
+function clearForm() {
+  document.getElementById("registrationForm").reset();
+}
+
+</script>
+
+
+<!-- add a script function to get data in staff-google-sheet -->
+
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbxc3NkStr9ZpEqqmJls54-imT6vujWxLu23z0ViblSYIYc-F09R0jEmmwhjRALPQK9neg/exec'  
+    const form = document.forms['staff-google-sheet']
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => console.log('Success!', response))
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+
+</body>
+</html>

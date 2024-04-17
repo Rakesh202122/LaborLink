@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LaborLink Registration Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .boxes {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .box {
+        width: calc(33.33% - 20px);
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-bottom: 20px;
+    }
+    .box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .box img {
+        display: block;
+        width: 60px;
+        height: auto;
+        margin: 0 auto 10px;
+    }
+    .box h3 {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+        .box {
+            width: calc(50% - 20px);
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .box {
+            width: 100%;
+        }
+    }
+    footer {
+        margin-top: 40px;
+        text-align: center;
+        color: #666;
+    }
+    /* Responsive styles */
+    @media screen and (max-width: 768px) {
+        .box {
+            width: calc(50% - 20px);
+        }
+    }
+    @media screen and (max-width: 480px) {
+        .box {
+            width: 100%;
+        }
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Registration Form</h1>
+    <div class="boxes">
+        <div class="box" onclick="window.location.href='worker.html'">
+            <img src="worker.svg" alt="Worker Icon">
+            <h3>Worker</h3>
+        </div>
+        <div class="box" onclick="window.location.href='contractor.html'">
+            <img src="contractor.svg" alt="Contractor Icon">
+            <h3>Contractor</h3>
+        </div>
+        <div class="box" onclick="window.location.href='staff.html'">
+            <img src="staff.svg" alt="Construction Staff Icon">
+            <h3>Construction Staff</h3>
+        </div>
+    </div>
+</div>
+
+<!-- footer section starts -->
+
+<footer>
+    <p>&copy; copyright 2024 All rights reserved by laborlink</p>
+</footer>
+
+<!-- footer section ends -->
+
+</body>
+</html>
